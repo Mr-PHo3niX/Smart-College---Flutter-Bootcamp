@@ -20,7 +20,6 @@ class HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.transparent,
       ),
       extendBodyBehindAppBar: true,
-      // backgroundColor: Colors.transparent,
       body: getBody(),
     );
   }
