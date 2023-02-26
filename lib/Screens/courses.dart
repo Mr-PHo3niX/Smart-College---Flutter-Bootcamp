@@ -13,7 +13,7 @@ class CoursesScreenState extends State<CoursesScreen> {
   Widget build(BuildContext context) {
     final completedCourses =
         mycourses.where((course) => course['percentage'] == 100).toList();
-        
+        //testing commit & sync
     return Scaffold(
         appBar: AppBar(
           title: const Text('Completed Courses'),
