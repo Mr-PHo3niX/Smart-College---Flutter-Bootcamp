@@ -147,7 +147,7 @@ class ProfileScreenState extends State<ProfileScreen> {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.lightGreen,
+          color: Colors.deepPurple,
         ),
         borderRadius: BorderRadius.circular(10.0),
       ),
@@ -160,7 +160,7 @@ class ProfileScreenState extends State<ProfileScreen> {
             style: const TextStyle(
               fontSize: 16.0,
               fontWeight: FontWeight.bold,
-              color: Colors.lightBlue,
+              color: Colors.deepPurple,
             ),
           ),
           const SizedBox(height: 5.0),
@@ -168,7 +168,7 @@ class ProfileScreenState extends State<ProfileScreen> {
             value,
             style: const TextStyle(
               fontSize: 16.0,
-              color: Colors.lightGreen,
+              color: Colors.deepPurple,
             ),
           ),
         ],
