@@ -145,34 +145,30 @@ class ProfileScreenState extends State<ProfileScreen> {
 
   Widget _buildCourseDataBox(String label, String value) {
     return Container(
-      width: 80.0,
-      height: 80.0,
       decoration: BoxDecoration(
-        color: Colors.green,
         border: Border.all(
-          color: Colors.green,
-          width: 2.0,
+          color: Colors.lightGreen,
         ),
         borderRadius: BorderRadius.circular(10.0),
       ),
+      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             label,
             style: const TextStyle(
-              fontSize: 14.0,
+              fontSize: 16.0,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.lightBlue,
             ),
           ),
           const SizedBox(height: 5.0),
           Text(
             value,
             style: const TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+              fontSize: 16.0,
+              color: Colors.lightGreen,
             ),
           ),
         ],
