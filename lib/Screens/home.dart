@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smartcollege/Screens/all_courses.dart';
 import 'package:smartcollege/Screens/courses.dart';
+import 'package:smartcollege/Screens/profile.dart';
 import '../data/courses_json.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -53,25 +54,14 @@ class HomeScreenState extends State<HomeScreen> {
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
+                      children: const [
+                        Text(
                           'Hello \nAsaad Falah',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
                               fontWeight: FontWeight.bold),
                         ),
-                        Container(
-                          height: 40,
-                          width: 40,
-                          decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Color.fromARGB(255, 1, 104, 132)),
-                          child: const Padding(
-                              padding: EdgeInsets.all(8),
-                              child: Icon(Icons.notifications,
-                                  color: Colors.white)),
-                        )
                       ],
                     ),
                     const SizedBox(

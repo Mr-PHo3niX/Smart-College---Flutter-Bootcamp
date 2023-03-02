@@ -1,105 +1,57 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:smartcollege/Screens/courses.dart';
 import 'package:smartcollege/Screens/home.dart';
 import 'package:smartcollege/Screens/profile.dart';
 
 class Nav_main extends StatefulWidget {
+  const Nav_main({Key? key}) : super(key: key);
+
   @override
-  _Nav_mainState createState() => _Nav_mainState();
+  Nav_mainState createState() => Nav_mainState();
 }
 
-class _Nav_mainState extends State<Nav_main> {
-  int screenIndex = 0;
+// implement nav-bar for home, courses and profile
+class Nav_mainState extends State<Nav_main> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    HomeScreen(),
+    CoursesScreen(),
+    ProfileScreen(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: getScreen(),
-      bottomNavigationBar: getFooter(),
-    );
-  }
-
-  Widget getScreen() {
-    const List<Widget> screen = [
-      HomeScreen(),
-      ProfileScreen(),
-      CoursesScreen()
-    ];
-    return IndexedStack(index: screenIndex, children: screen);
-  }
-
-  Widget getFooter() {
-    List bottomitems = [
-      'images/home_icon.svg',
-      'images/user_icon.svg',
-      'images/play_icon.svg'
-    ];
-
-    return Container(
-      //width: ,
-      height: 70,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black45,
-            blurRadius: 30.0,
-            offset: Offset(0, -10),
-          )
-        ],
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      child: ClipRRect(
-        borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-        child: Container(
-          padding: const EdgeInsets.all(21),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    screenIndex = 0;
-                  });
-                },
-                child: Column(children: [
-                  SvgPicture.asset(bottomitems[0],
-                      height: 17.5, color: Colors.black),
-                  const SizedBox(height: 5.0),
-                ]),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    screenIndex = 1;
-                  });
-                },
-                child: Column(children: [
-                  SvgPicture.asset(bottomitems[1],
-                      height: 17.5, color: Colors.black),
-                  const SizedBox(height: 5.0),
-                ]),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    screenIndex = 2;
-                  });
-                },
-                child: Column(children: [
-                  SvgPicture.asset(bottomitems[2],
-                      height: 17.5, color: Colors.black),
-                  const SizedBox(height: 5.0),
-                ]),
-              ),
-            ],
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'Courses',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
       ),
     );
   }
-
-//
-
 }
